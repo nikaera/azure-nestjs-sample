@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+    app:
+        build: ../.
+        links:
+            - mongodb
+    mongodb:
+        image: mongo:latest
+        ports:
+            - "27017:27017"
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: azure-sample
+            MONGO_INITDB_ROOT_PASSWORD: azure-sample
+            MONGO_INITDB_DATABASE: azure-sample
+            TZ: Asia/Tokyo
